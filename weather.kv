@@ -1,0 +1,153 @@
+MDScreen:
+    name:"weather"
+    MDFloatLayout:
+        MDCard:
+            md_bg_color:rgba(202, 233, 245, 255)
+            size_hint:.94,.98
+            pos_hint:{"center_x":.5,"center_y":.5}
+            radius:[20,20,20,20]
+            padding:"5sp"
+            elevation:10
+            MDFloatLayout:
+                md_bg_color:rgba(114, 202, 238, 250)
+                size_hint:.92,1
+                pos_hint:{"center_x":.5,"center_y":.5}
+                radius:[20,20,20,20]
+                MDFloatLayout:
+                    id:weather_widget
+                    size_hint:1,.65
+                    pos_hint:{"center_x":.5,"center_y":.56}
+                    Image:
+                        id:weather_icon
+                        source:""
+                        pos_hint:{"center_x":.28,"center_y":.43}
+                        size_hint:.25,.25
+                        allow_stretch:True
+                        keep_ratio:True
+                    MDLabel:
+                        id:status
+                        text:""
+                        halign:'center'
+                        font_size:"20sp"
+                        size_hint_y: None
+                        text_size: self.width, None
+                        height: self.texture_size[1]
+                        font_name:"Gilroy-Regular.ttf"
+                        pos_hint:{"center_x":.68,"center_y":.43}
+                        theme_text_color:"Primary"
+                        color:rgba(	40, 40, 43, 255)
+                    MDLabel:
+                        id:temp
+                        text:""
+                        halign:'center'
+                        font_size:"90sp"
+                        font_name:"Gilroy-SemiBold.ttf"
+                        pos_hint:{"center_x":.5,"center_y":.75}
+                        theme_text_color:"Primary"
+                        color:rgba(	46, 46, 45, 255)
+                    MDLabel:
+                        text:"O"
+                        halign:'center'
+                        font_size:"30sp"
+                        font_name:"Gilroy-Regular.ttf"
+                        pos_hint:{"center_x":.7,"center_y":.85}
+                        theme_text_color:"Primary"
+                        color:0,0,0,1
+                    MDLabel:
+                        id:city
+                        text:""
+                        halign:'center'
+                        font_size:"16sp"
+                        size_hint_y: None
+                        text_size: self.width, None
+                        font_name:"Gilroy-Medium.ttf"
+                        pos_hint:{"center_x":.5,"center_y":.08}
+                        theme_text_color:"Primary"
+                        color:rgba(	70, 70, 73, 255)
+                    MDLabel:
+                        id:day
+                        text:''
+                        halign:'center'
+                        font_size:"16sp"
+                        font_name:"Gilroy-Medium.ttf"
+                        pos_hint:{"center_x":.5,"center_y":.21}
+                        theme_text_color:"Primary"
+                        color:rgba(	40, 40, 43, 255)
+                MDIconButton:
+                    icon:"dots-vertical"
+                    user_font_size:"25sp"
+                    pos_hint:{"center_x":.057, "center_y":.937}
+                    on_press:app.change_screen()
+                    theme_text_color:'Custom'
+                    text_color:1,1,1,1
+                MDFloatLayout:
+                    size_hint:.85,.07
+                    pos_hint:{"center_x":.527, "center_y": .937}
+                    canvas:
+                        Color:
+                            rgb:240/255, 240/255, 240/255, 1
+                        RoundedRectangle:
+                            size:self.size
+                            pos:self.pos
+                            radius:[10,10,10,10]
+                    TextInput:
+                        id:field
+                        hint_text:"Search City"
+                        hint_text_color:120/255, 120/255, 120/255, 1
+                        size_hint:1, None
+                        pos_hint:{"center_x":.5, "center_y":.5}
+                        font_size:"16sp"
+                        font_name:"ITCAvantGardeStd-Md.ttf"
+                        height:self.minimum_height
+                        multiline:False
+                        background_color:0,0,0,0
+                        foreground_color:120/255, 120/255, 120/255, 1
+                        cursor_color:0,0,0,1
+                        cursor_width:"1sp"
+                        on_focus:app.autocomplete()
+                        on_text_validate:app.weather_forecast(field.text)
+                MDSeparator:
+                    size_hint:.9,.004
+                    pos_hint:{"center_x":.5, "center_y":.2}
+                    color:1,1,1,.4
+
+                Image:
+                    source:"wind .png"
+                    size_hint:.11,.11
+                    pos_hint:{"center_x":.8, "center_y":.13}
+                MDLabel:
+                    id:wind
+                    text:''
+                    halign:'center'
+                    font_size:"15sp"
+                    font_name:"Gilroy-Medium.ttf"
+                    pos_hint:{"center_x":.82,"center_y":.06}
+                    theme_text_color:"Primary"
+                    color:rgba(	40, 40, 43, 255)
+                Image:
+                    source:"humidity.png"
+                    size_hint:.09,.09
+                    pos_hint:{"center_x":.49, "center_y":.13}
+                MDLabel:
+                    id:humidity
+                    text:''
+                    halign:'center'
+                    font_size:"15sp"
+                    font_name:"Gilroy-Medium.ttf"
+                    pos_hint:{"center_x":.51,"center_y":.06}
+                    theme_text_color:"Primary"
+                    color:rgba(	40, 40, 43, 255)
+                Image:
+                    source:"uv.png"
+                    size_hint:.09,.09
+                    pos_hint:{"center_x":.17, "center_y":.13}
+                MDLabel:
+                    id:uv_index
+                    text:''
+                    halign:'center'
+                    font_size:"15sp"
+                    font_name:"Gilroy-Medium.ttf"
+                    pos_hint:{"center_x":.174,"center_y":.06}
+                    theme_text_color:"Primary"
+                    color:rgba(	40, 40, 43, 255)
+

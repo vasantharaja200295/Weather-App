@@ -1,0 +1,64 @@
+MDScreen:
+    name:"settings"
+    MDFloatLayout:
+        MDLabel:
+            text:"Settings"
+            pos_hint:{"center_x":.2, "center_y":.95}
+            halign:"center"
+            font_size:"30sp"
+            font_name:'Gilroy-SemiBold.ttf'
+            theme_text_color:'Custom'
+            text_color:rgba(40, 40, 43, 255)
+
+        MDLabel:
+            text:"Default Location"
+            halign:"center"
+            font_size:"18sp"
+            font_name:'Gilroy-Medium.ttf'
+            pos_hint:{"center_x":.24, "center_y":.85}
+
+        MDLabel:
+            text:"Set Current location as default"
+            halign:"center"
+            font_size:"14sp"
+            font_name:'Gilroy-Regular.ttf'
+            pos_hint:{"center_x":.324, "center_y":.81}
+            theme_text_color:"Secondary"
+
+        MDCard:
+            md_bg_color:rgba(84, 186, 227, 255)
+            pos_hint:{"center_x":.83, "center_y":.81}
+            on_press:app.set_default_loc()
+            radius:[5,5,5,5]
+            size_hint:.25,.05
+            MDLabel:
+                text:"set"
+                halign:"center"
+                font_size:"14sp"
+                font_name:'Gilroy-Regular.ttf'
+                theme_text_color:"Primary"
+                color:1,1,1,1
+
+        MDTextButton:
+            text:"Reset Default location"
+            halign:"center"
+            font_size:"12sp"
+            font_name:'Gilroy-Light.ttf'
+            pos_hint:{"center_x":.22, "center_y":.775}
+            color:rgba(247, 193, 77, 255)
+            on_press:app.reset_default_loc()
+
+        MDLabel:
+            text:"Weather App V 1.2"
+            halign:"center"
+            font_size:"14sp"
+            font_name:'Gilroy-Regular.ttf'
+            pos_hint:{"center_x":.5, "center_y":.171}
+            theme_text_color:"Hint"
+        MDLabel:
+            text:"Created by Vsantharaja CSE"
+            halign:"center"
+            font_size:"14sp"
+            font_name:'Gilroy-Regular.ttf'
+            pos_hint:{"center_x":.5, "center_y":.141}
+            theme_text_color:"Hint"
